@@ -1,0 +1,29 @@
+{
+  "name": "stone-by-ric-crm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "1.7.15",
+    "@heroicons/react": "2.0.18",
+    "@supabase/supabase-js": "2.28.0",
+    "autoprefixer": "10.4.14",
+    "html2canvas": "1.4.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.29",
+    "next": "14.2.0",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.4.7"
+  },
+  "devDependencies": {
+    "eslint": "8.47.0",
+    "eslint-config-next": "14.2.0"
+  }
+}
