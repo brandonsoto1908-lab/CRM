@@ -1,12 +1,15 @@
 import { supabaseServer } from '../../lib/supabaseServerClient'
 
-function setCookie(res, name, value, opts = {}) {
-  const { maxAge, path = '/', httpOnly = true, sameSite = 'Lax', secure = false } = opts
-  let cookie = `${name}=${value}; Path=${path}; SameSite=${sameSite}`
-  if (httpOnly) cookie += '; HttpOnly'
-  if (secure) cookie += '; Secure'
-  if (maxAge) cookie += `; Max-Age=${maxAge}`
-  res.setHeader('Set-Cookie', cookie)
+function setCookies(res, cookies) {
+  const cookieStrings = cookies.map(({ name, value, opts = {} }) => {
+    const { maxAge, path = '/', httpOnly = true, sameSite = 'Lax', secure = false } = opts
+    let cookie = `${name}=${value}; Path=${path}; SameSite=${sameSite}`
+    if (httpOnly) cookie += '; HttpOnly'
+    if (secure) cookie += '; Secure'
+    if (maxAge) cookie += `; Max-Age=${maxAge}`
+    return cookie
+  })
+  res.setHeader('Set-Cookie', cookieStrings)
 }
 
 export default async function handler(req, res) {
@@ -41,19 +44,24 @@ export default async function handler(req, res) {
       path: '/'
     }
 
-    // Set access token cookie
-    setCookie(res, 'sb_access_token', access_token, {
-      ...cookieOptions,
-      maxAge: expires_in || 3600
-    })
+    // Build cookies array
+    const cookies = [
+      {
+        name: 'sb_access_token',
+        value: access_token,
+        opts: { ...cookieOptions, maxAge: expires_in || 3600 }
+      }
+    ]
 
-    // Set refresh token cookie if provided
     if (refresh_token) {
-      setCookie(res, 'sb_refresh_token', refresh_token, {
-        ...cookieOptions,
-        maxAge: 60 * 60 * 24 * 30 // 30 days
+      cookies.push({
+        name: 'sb_refresh_token',
+        value: refresh_token,
+        opts: { ...cookieOptions, maxAge: 60 * 60 * 24 * 30 }
       })
     }
+
+    setCookies(res, cookies)
 
     return res.status(200).json({ ok: true, user: { id: data.user.id, email: data.user.email } })
   } catch (err) {

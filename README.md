@@ -22,3 +22,6 @@ Local testing:
 - Run `npm install` then `npm run dev`.
 
 If build fails, check server-side imports that may accidentally import client-only modules (like components with 'use client').
+
+
+Quiero ver si este es el que ocupo 
