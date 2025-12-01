@@ -15,11 +15,11 @@ export default function Layout({ children }) {
 
   const navigation = [
     { name: 'Dashboard', href: '/', icon: HomeIcon },
-    { name: 'Clientes', href: '/clients', icon: UsersIcon },
-    { name: 'Trabajadores', href: '/workers', icon: BriefcaseIcon },
-    { name: 'Servicios', href: '/services', icon: DocumentTextIcon },
-    { name: 'Rutas', href: '/routes', icon: TruckIcon },
-    { name: 'Finanzas', href: '/finance', icon: CurrencyDollarIcon },
+    { name: 'Clients', href: '/clients', icon: UsersIcon },
+    { name: 'Workers', href: '/workers', icon: BriefcaseIcon },
+    { name: 'Services', href: '/services', icon: DocumentTextIcon },
+    { name: 'Routes', href: '/routes', icon: TruckIcon },
+    { name: 'Finance', href: '/finance', icon: CurrencyDollarIcon },
   ]
 
   const isActive = (href) => {
@@ -38,7 +38,7 @@ export default function Layout({ children }) {
         {/* Logo */}
         <div className="p-6 border-b border-blue-500">
           <h1 className="text-2xl font-bold">Stone by Ric</h1>
-          <p className="text-blue-200 text-sm">Sistema CRM</p>
+          <p className="text-blue-200 text-sm">CRM System</p>
         </div>
 
         {/* Navigation */}
@@ -72,7 +72,7 @@ export default function Layout({ children }) {
             className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-all"
           >
             <ArrowRightOnRectangleIcon className="w-5 h-5" />
-            <span className="font-medium">Cerrar Sesión</span>
+            <span className="font-medium">Logout</span>
           </button>
         </div>
       </div>
@@ -87,7 +87,7 @@ export default function Layout({ children }) {
             </h2>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600">
-                {new Date().toLocaleDateString('es-ES', { 
+                {new Date().toLocaleDateString('en-US', { 
                   weekday: 'long', 
                   year: 'numeric', 
                   month: 'long', 

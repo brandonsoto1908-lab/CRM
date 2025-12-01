@@ -46,7 +46,7 @@ export default function Home() {
 
   const cards = [
     { 
-      name: 'Clientes', 
+      name: 'Clients', 
       value: stats.clients, 
       href: '/clients', 
       icon: UsersIcon,
@@ -55,7 +55,7 @@ export default function Home() {
       textColor: 'text-blue-600'
     },
     { 
-      name: 'Trabajadores', 
+      name: 'Workers', 
       value: stats.workers, 
       href: '/workers', 
       icon: BriefcaseIcon,
@@ -64,7 +64,7 @@ export default function Home() {
       textColor: 'text-purple-600'
     },
     { 
-      name: 'Servicios', 
+      name: 'Services', 
       value: stats.services, 
       href: '/services', 
       icon: DocumentTextIcon,
@@ -73,7 +73,7 @@ export default function Home() {
       textColor: 'text-green-600'
     },
     { 
-      name: 'Rutas', 
+      name: 'Routes', 
       value: stats.routes, 
       href: '/routes', 
       icon: TruckIcon,
@@ -82,7 +82,7 @@ export default function Home() {
       textColor: 'text-orange-600'
     },
     { 
-      name: 'Facturas', 
+      name: 'Invoices', 
       value: stats.invoices, 
       href: '/finance', 
       icon: CurrencyDollarIcon,
@@ -96,8 +96,8 @@ export default function Home() {
     <div className="p-8">
       {/* Welcome Section */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">¡Bienvenido de nuevo!</h1>
-        <p className="text-gray-600">Aquí está un resumen de tu negocio</p>
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome back!</h1>
+        <p className="text-gray-600">Here's a summary of your business</p>
       </div>
 
       {/* Stats Cards */}
@@ -120,7 +120,7 @@ export default function Home() {
                 <h3 className="text-gray-600 text-sm font-medium mb-1">{card.name}</h3>
                 <p className={`text-3xl font-bold ${card.textColor}`}>{card.value}</p>
                 <div className="mt-4 flex items-center text-sm text-gray-500 group-hover:text-gray-700">
-                  <span>Ver detalles</span>
+                  <span>View details</span>
                   <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -133,28 +133,28 @@ export default function Home() {
 
       {/* Quick Actions */}
       <div className="bg-white rounded-xl shadow-sm p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Acciones Rápidas</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link 
             href="/clients" 
             className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all"
           >
             <UsersIcon className="w-6 h-6" />
-            <span className="font-medium">Nuevo Cliente</span>
+            <span className="font-medium">New Client</span>
           </Link>
           <Link 
             href="/services" 
             className="flex items-center gap-3 p-4 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-lg hover:shadow-lg transition-all"
           >
             <DocumentTextIcon className="w-6 h-6" />
-            <span className="font-medium">Nuevo Servicio</span>
+            <span className="font-medium">New Service</span>
           </Link>
           <Link 
             href="/finance" 
             className="flex items-center gap-3 p-4 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg hover:shadow-lg transition-all"
           >
             <CurrencyDollarIcon className="w-6 h-6" />
-            <span className="font-medium">Nueva Factura</span>
+            <span className="font-medium">New Invoice</span>
           </Link>
         </div>
       </div>
