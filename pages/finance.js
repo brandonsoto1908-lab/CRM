@@ -27,6 +27,27 @@ export default function Finance() {
     setShowForm(true)
   }
 
+  async function handleDeleteInvoice(invoice) {
+    if (!confirm(`¿Estás seguro de eliminar la factura #${invoice.invoice_number}?`)) {
+      return
+    }
+
+    try {
+      const res = await fetch(`/api/invoices/${invoice.id}`, {
+        method: 'DELETE'
+      })
+
+      if (!res.ok) {
+        throw new Error('Error al eliminar la factura')
+      }
+
+      // Actualizar la lista de facturas
+      fetchInvoices()
+    } catch (error) {
+      alert('Error al eliminar la factura: ' + error.message)
+    }
+  }
+
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-6">
@@ -98,20 +119,28 @@ export default function Finance() {
                   ${invoice.total.toFixed(2)}
                 </td>
                 <td className="py-3 px-4">
-                  <button
-                    onClick={() => handleEditInvoice(invoice)}
-                    className="text-blue-500 hover:text-blue-700 mr-3"
-                  >
-                    Edit
-                  </button>
-                  <a 
-                    href={`/api/invoices/${invoice.id}/pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                  >
-                    PDF
-                  </a>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleEditInvoice(invoice)}
+                      className="text-blue-500 hover:text-blue-700"
+                    >
+                      Edit
+                    </button>
+                    <a 
+                      href={`/api/invoices/${invoice.id}/pdf`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-sm"
+                    >
+                      PDF
+                    </a>
+                    <button
+                      onClick={() => handleDeleteInvoice(invoice)}
+                      className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
