@@ -38,15 +38,15 @@ export default function ServiceForm({ onSaved, editing }){
     <form onSubmit={handleSubmit} className="space-y-3">
       <div>
         <label className="block text-sm font-medium text-gray-700">Name</label>
-        <input value={name} onChange={e=>setName(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <input value={name} onChange={e=>setName(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Description</label>
-        <textarea value={description} onChange={e=>setDescription(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <textarea value={description} onChange={e=>setDescription(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Price</label>
-        <input type="number" step="0.01" min="0" value={price} onChange={e=>setPrice(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <input type="number" step="0.01" min="0" value={price} onChange={e=>setPrice(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded" disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>

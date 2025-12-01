@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from '../lib/supabaseClient'
+import Layout from '../components/Layout'
 
 function useAuthCheck() {
   const router = useRouter()
@@ -39,18 +40,28 @@ function useAuthCheck() {
 }
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
   const loading = useAuthCheck()
   
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="text-center">
-          <div className="mb-4">Comprobando sesión...</div>
-          <div className="w-8 h-8 border-t-2 border-b-2 border-blue-500 rounded-full animate-spin"></div>
+          <div className="mb-4 text-gray-700 font-medium">Comprobando sesión...</div>
+          <div className="w-12 h-12 mx-auto border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       </div>
     )
   }
 
-  return <Component {...pageProps} />
+  // Don't use Layout for login page
+  if (router.pathname === '/login') {
+    return <Component {...pageProps} />
+  }
+
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
 }

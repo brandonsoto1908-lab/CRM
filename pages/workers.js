@@ -32,12 +32,12 @@ export default function Workers(){
     <div className="p-8">
       <h2 className="text-2xl font-semibold mb-4">Workers</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white p-4 rounded shadow">
-          <h3 className="font-medium mb-2">Add / Edit Worker</h3>
+        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <h3 className="font-medium mb-4 text-lg">Add / Edit Worker</h3>
           <WorkerForm onSaved={onSaved} editing={editing} />
         </div>
-        <div className="bg-white p-4 rounded shadow">
-          <h3 className="font-medium mb-2">Existing Workers</h3>
+        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <h3 className="font-medium mb-4 text-lg">Existing Workers</h3>
           {loading ? <p>Loading...</p> : (
             <ul className="space-y-4">
               {workers.map(w => (

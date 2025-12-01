@@ -168,7 +168,7 @@ export default function InvoiceForm({ onSaved, editing }) {
         <select
           value={client_id}
           onChange={e => setClientId(e.target.value)}
-          className="mt-1 block w-full rounded border-gray-300"
+          className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all"
           required
         >
           <option value="">Select client</option>
@@ -185,7 +185,7 @@ export default function InvoiceForm({ onSaved, editing }) {
             <select
               value={item.service_id}
               onChange={e => handleItemChange(idx, 'service_id', e.target.value)}
-              className="block w-full rounded border-gray-300"
+              className="block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all"
               required
             >
               <option value="">Select service</option>
@@ -200,7 +200,7 @@ export default function InvoiceForm({ onSaved, editing }) {
               value={item.quantity}
               onChange={e => handleItemChange(idx, 'quantity', parseInt(e.target.value))}
               placeholder="Qty"
-              className="block w-20 rounded border-gray-300"
+              className="block w-20 rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all"
               min="1"
               required
             />
@@ -227,7 +227,7 @@ export default function InvoiceForm({ onSaved, editing }) {
         <textarea
           value={notes}
           onChange={e => setNotes(e.target.value)}
-          className="mt-1 block w-full rounded border-gray-300"
+          className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all"
           rows="3"
         />
       </div>

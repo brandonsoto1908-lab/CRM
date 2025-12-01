@@ -77,18 +77,18 @@ export default function ClientForm({ onSaved, editing, servicesList }){
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-gray-700">Name</label>
-        <input value={name} onChange={e=>setName(e.target.value)} className="mt-1 block w-full rounded border-gray-300" required />
+        <input value={name} onChange={e=>setName(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" required />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" value={email} onChange={e=>setEmail(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <input type="email" value={email} onChange={e=>setEmail(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Addresses</label>
         {addresses.map((a,idx)=>(
           <div key={idx} className="flex gap-2 mb-2">
-            <input value={a.address_text} onChange={e=>handleAddressChange(idx,'address_text',e.target.value)} placeholder="Address" className="block w-2/3 rounded border-gray-300" required />
-            <input value={a.notes} onChange={e=>handleAddressChange(idx,'notes',e.target.value)} placeholder="Notes" className="block w-1/3 rounded border-gray-300" />
+            <input value={a.address_text} onChange={e=>handleAddressChange(idx,'address_text',e.target.value)} placeholder="Address" className="block w-2/3 rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" required />
+            <input value={a.notes} onChange={e=>handleAddressChange(idx,'notes',e.target.value)} placeholder="Notes" className="block w-1/3 rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
             <button type="button" onClick={()=>removeAddress(idx)} className="px-2 py-1 bg-red-500 text-white rounded">Remove</button>
           </div>
         ))}
@@ -98,14 +98,14 @@ export default function ClientForm({ onSaved, editing, servicesList }){
         <label className="block text-sm font-medium text-gray-700">Services</label>
         {selectedServices.map((s,idx)=>(
           <div key={idx} className="flex gap-2 mb-2 items-center">
-            <select value={s.service_id} onChange={e=>handleServiceChange(idx,'service_id',e.target.value)} className="block w-1/3 rounded border-gray-300" required>
+            <select value={s.service_id} onChange={e=>handleServiceChange(idx,'service_id',e.target.value)} className="block w-1/3 rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" required>
               <option value="">Select service</option>
               {servicesList.map(sl=>(
                 <option key={sl.id} value={sl.id}>{sl.name}</option>
               ))}
             </select>
             <span className="block w-1/4">${servicesList.find(sl=>sl.id===s.service_id)?.price?.toFixed(2) ?? '0.00'}</span>
-            <input type="number" step="0.01" min="0" value={s.discount || ''} onChange={e=>handleServiceChange(idx,'discount',e.target.value)} placeholder="Discount" className="block w-1/4 rounded border-gray-300" />
+            <input type="number" step="0.01" min="0" value={s.discount || ''} onChange={e=>handleServiceChange(idx,'discount',e.target.value)} placeholder="Discount" className="block w-1/4 rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
             <button type="button" onClick={()=>removeService(idx)} className="px-2 py-1 bg-red-500 text-white rounded">Remove</button>
           </div>
         ))}

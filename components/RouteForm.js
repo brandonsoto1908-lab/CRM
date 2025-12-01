@@ -85,15 +85,15 @@ export default function RouteForm({ onSaved, editing, workersList, clientsList }
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-gray-700">Route Name</label>
-        <input value={name} onChange={e=>setName(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <input value={name} onChange={e=>setName(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Notes</label>
-        <textarea value={notes} onChange={e=>setNotes(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <textarea value={notes} onChange={e=>setNotes(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Worker</label>
-        <select value={workerId} onChange={e=>setWorkerId(e.target.value)} className="mt-1 block w-full rounded border-gray-300" required>
+        <select value={workerId} onChange={e=>setWorkerId(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" required>
           <option value="">Select worker</option>
           {workersList.map(w => (
             <option key={w.id} value={w.id}>{w.full_name}</option>
@@ -108,7 +108,7 @@ export default function RouteForm({ onSaved, editing, workersList, clientsList }
               <select 
                 value={item.client_id} 
                 onChange={e=>handleItemChange(idx,'client_id',e.target.value)}
-                className="block w-1/2 rounded border-gray-300"
+                className="block w-1/2 rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all"
                 required
               >
                 <option value="">Select client</option>
@@ -119,7 +119,7 @@ export default function RouteForm({ onSaved, editing, workersList, clientsList }
               <select 
                 value={item.client_address_id}
                 onChange={e=>handleItemChange(idx,'client_address_id',e.target.value)}
-                className="block w-1/2 rounded border-gray-300"
+                className="block w-1/2 rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all"
                 required
               >
                 <option value="">Select address</option>
@@ -136,7 +136,7 @@ export default function RouteForm({ onSaved, editing, workersList, clientsList }
                 value={item.specifications || ''}
                 onChange={e=>handleItemChange(idx,'specifications',e.target.value)}
                 placeholder="Specifications"
-                className="block w-full rounded border-gray-300"
+                className="block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all"
               />
             </div>
             <div>

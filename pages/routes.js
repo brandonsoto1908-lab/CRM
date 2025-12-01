@@ -60,8 +60,8 @@ export default function Routes(){
     <div className="p-8">
       <h2 className="text-2xl font-semibold mb-4">Routes</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white p-4 rounded shadow">
-          <h3 className="font-medium mb-2">Add / Edit Route</h3>
+        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <h3 className="font-medium mb-4 text-lg">Add / Edit Route</h3>
           <RouteForm 
             onSaved={onSaved} 
             editing={editing} 
@@ -69,8 +69,8 @@ export default function Routes(){
             clientsList={clients}
           />
         </div>
-        <div className="bg-white p-4 rounded shadow">
-          <h3 className="font-medium mb-2">Existing Routes</h3>
+        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <h3 className="font-medium mb-4 text-lg">Existing Routes</h3>
           {loading ? <p>Loading...</p> : (
             <ul className="space-y-4">
               {routes.map(route => (

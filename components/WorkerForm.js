@@ -38,15 +38,15 @@ export default function WorkerForm({ onSaved, editing }){
     <form onSubmit={handleSubmit} className="space-y-3">
       <div>
         <label className="block text-sm font-medium text-gray-700">Full Name</label>
-        <input value={full_name} onChange={e=>setFullName(e.target.value)} className="mt-1 block w-full rounded border-gray-300" required />
+        <input value={full_name} onChange={e=>setFullName(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" required />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" value={email} onChange={e=>setEmail(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <input type="email" value={email} onChange={e=>setEmail(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Phone</label>
-        <input value={phone} onChange={e=>setPhone(e.target.value)} className="mt-1 block w-full rounded border-gray-300" />
+        <input value={phone} onChange={e=>setPhone(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-md focus:shadow-lg focus:ring-2 focus:ring-blue-500 transition-all" />
       </div>
       <div>
         <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded" disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>
